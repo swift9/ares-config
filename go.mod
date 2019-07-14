@@ -1,4 +1,4 @@
-module github.com/swift9/config
+module github.com/swift9/ares-config
 
 go 1.12
 
