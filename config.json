@@ -1,0 +1,19 @@
+{
+  "test": 123,
+  "ob": {
+    "bool": false,
+    "a": "a"
+  },
+  "nacos": {
+    "dataId": "cloudrendering-iray",
+    "group": "DEFAULT_GROUP",
+    "namespaceId": "2a792b81-54a6-4321-8d4d-7e83b4eccff6",
+    "serverConfigs": [
+      {
+        "ipAddr": "192.168.8.188",
+        "contextPath": "/nacos",
+        "port": 8848
+      }
+    ]
+  }
+}
