@@ -10,7 +10,6 @@ import (
 	"github.com/tidwall/gjson"
 	"io/ioutil"
 	"os"
-	"strconv"
 )
 
 type config struct {
@@ -100,6 +99,74 @@ func readString(data string) *gjson.Result {
 	return &result
 }
 
+func GetLocalConfig() *gjson.Result {
+	return conf.local
+}
+
+func GeNacosConfig() *gjson.Result {
+	return conf.nacos
+}
+
+func GeNacosClient() config_client.IConfigClient {
+	return conf.nacosClient
+}
+
+func GetArrayString(name string) []string {
+	if conf.nacos != nil {
+		if result := conf.nacos.Get(name); result.Exists() && result.IsArray() {
+			return convertResult2ArrayString(result)
+		}
+	}
+	if result := conf.local.Get(name); result.Exists() && result.IsArray() {
+		return convertResult2ArrayString(result)
+	}
+	return []string{}
+}
+
+func GetArrayInt64(name string) []int64 {
+	if conf.nacos != nil {
+		if result := conf.nacos.Get(name); result.Exists() && result.IsArray() {
+			return convertResult2ArrayInt64(result)
+		}
+	}
+	if result := conf.local.Get(name); result.Exists() && result.IsArray() {
+		return convertResult2ArrayInt64(result)
+	}
+	return []int64{}
+}
+
+func convertResult2ArrayString(result gjson.Result) []string {
+	var arrayStrings []string
+	for _, result := range result.Array() {
+		arrayStrings = append(arrayStrings, result.String())
+	}
+	return arrayStrings
+}
+
+func convertResult2ArrayInt64(result gjson.Result) []int64 {
+	var arrayStrings []int64
+	for _, result := range result.Array() {
+		arrayStrings = append(arrayStrings, result.Int())
+	}
+	return arrayStrings
+}
+
+func getStruct(name string, dst interface{}) error {
+	if conf.nacos != nil {
+		if result := conf.nacos.Get(name); result.Exists() && result.IsArray() {
+			return convertResult2Struct(result, &dst)
+		}
+	}
+	if result := conf.local.Get(name); result.Exists() && result.IsArray() {
+		return convertResult2Struct(result, &dst)
+	}
+	return nil
+}
+
+func convertResult2Struct(result gjson.Result, dst interface{}) error {
+	return json.Unmarshal([]byte(result.Raw), &dst)
+}
+
 func GetString(name string, defaultValues ...string) string {
 	if conf.nacos != nil && conf.nacos.Get(name).Exists() {
 		return conf.nacos.Get(name).String()
@@ -146,10 +213,5 @@ func GetInt(name string, defaultValues ...int) int {
 	} else {
 		val = GetInt64(name)
 	}
-	int64string := strconv.FormatInt(val, 10)
-	int32, err := strconv.Atoi(int64string)
-	if err != nil {
-		return 0
-	}
-	return int32
+	return int(val)
 }
