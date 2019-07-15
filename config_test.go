@@ -1,7 +1,7 @@
 package config_test
 
 import (
-	"github.com/swift9/config"
+	"github.com/swift9/ares-config"
 	"os"
 	"testing"
 )
