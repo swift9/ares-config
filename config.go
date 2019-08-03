@@ -2,6 +2,7 @@ package config
 
 import (
 	"encoding/json"
+	"flag"
 	"github.com/emirpasic/gods/lists/arraylist"
 	"github.com/nacos-group/nacos-sdk-go/clients"
 	"github.com/nacos-group/nacos-sdk-go/clients/config_client"
@@ -21,13 +22,17 @@ type config struct {
 
 var conf config
 
+var cmdConfigFile = flag.String("config", "config.json", "config file path")
+
 func init() {
+	flag.Parse()
 	log.Println("init ares config...")
 	var configFile = os.Getenv("ARES_CONFIG_FILE")
 	log.Println("ARES_CONFIG_FILE:", configFile)
 	if configFile == "" {
-		configFile = "config.json"
+		configFile = *cmdConfigFile
 	}
+
 	log.Println("load configFile:", configFile)
 	local := readFile(configFile)
 	log.Println("load configFile:success")
