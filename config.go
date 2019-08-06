@@ -22,16 +22,23 @@ type config struct {
 
 var conf config
 
-var cmdConfigFile = flag.String("config", "config.json", "config file path")
+var cmdConfigFile = flag.String("config", "", "config file path")
 
 func init() {
 	flag.Parse()
 	log.Println("init ares config...")
-	var configFile = os.Getenv("ARES_CONFIG_FILE")
-	log.Println("ARES_CONFIG_FILE:", configFile)
+
+	configFile := *cmdConfigFile
+
 	if configFile == "" {
-		configFile = *cmdConfigFile
+		configFile = os.Getenv("ARES_CONFIG_FILE")
 	}
+
+	if configFile == "" {
+		configFile = os.Getenv("ARES_CONFIG_FILE")
+	}
+
+	log.Println("ARES_CONFIG_FILE:", configFile)
 
 	log.Println("load configFile:", configFile)
 	local := readFile(configFile)
