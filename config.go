@@ -38,6 +38,10 @@ func init() {
 		configFile = os.Getenv("ARES_CONFIG_FILE")
 	}
 
+	if configFile == "" {
+		configFile = "config.json"
+	}
+
 	log.Println("ARES_CONFIG_FILE:", configFile)
 
 	log.Println("load configFile:", configFile)
