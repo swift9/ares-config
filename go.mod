@@ -15,9 +15,10 @@ require (
 	github.com/lestrrat/go-envload v0.0.0-20180220120943-6ed08b54a570 // indirect
 	github.com/lestrrat/go-file-rotatelogs v0.0.0-20180223000712-d3151e2a480f // indirect
 	github.com/lestrrat/go-strftime v0.0.0-20180220042222-ba3bf9c1d042 // indirect
-	github.com/nacos-group/nacos-sdk-go v0.0.0-20190630065254-22f4c0b49159
+	github.com/nacos-group/nacos-sdk-go v0.0.0-20190717113851-650d9580bed2
 	github.com/pkg/errors v0.8.1 // indirect
 	github.com/satori/go.uuid v1.2.0 // indirect
+	github.com/stretchr/testify v1.3.0 // indirect
 	github.com/tebeka/strftime v0.0.0-20140926081919-3f9c7761e312 // indirect
 	github.com/tidwall/gjson v1.3.0
 	github.com/toolkits/concurrent v0.0.0-20150624120057-a4371d70e3e3 // indirect

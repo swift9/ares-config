@@ -28,6 +28,9 @@ github.com/lestrrat/go-strftime v0.0.0-20180220042222-ba3bf9c1d042 h1:Bvq8AziQ5j
 github.com/lestrrat/go-strftime v0.0.0-20180220042222-ba3bf9c1d042/go.mod h1:TPpsiPUEh0zFL1Snz4crhMlBe60PYxRHr5oFF3rRYg0=
 github.com/nacos-group/nacos-sdk-go v0.0.0-20190630065254-22f4c0b49159 h1:XkJb8/A781PxGC2GDj+GdTMAuwBRyKEJl/hZocoZ9JA=
 github.com/nacos-group/nacos-sdk-go v0.0.0-20190630065254-22f4c0b49159/go.mod h1:NrF1I5YnrlNxJ/5e5BUOHuf2IFdn1VBoCxKJnwcxXWQ=
+github.com/nacos-group/nacos-sdk-go v0.0.0-20190717113851-650d9580bed2 h1:yTmtdQmQ8by2kE85s9t7wUdKvlZNhhTFJOntFYWWRvc=
+github.com/nacos-group/nacos-sdk-go v0.0.0-20190717113851-650d9580bed2/go.mod h1:CEkSvEpoveoYjA81m4HNeYQ0sge0LFGKSEqO3JKHllo=
+github.com/nacos-group/nacos-sdk-go v0.0.0-20190723125407-0242d42e3dbb h1:lbmvw8r9W55w+aQgWn35W1nuleRIECMoqUrmwAOAvoI=
 github.com/pkg/errors v0.8.1 h1:iURUrRGxPUNPdy5/HRSm+Yj6okJ6UtLINN0Q9M4+h3I=
 github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
